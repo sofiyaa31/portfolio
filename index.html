@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sofiyanatul Munawaroh — Cybersecurity Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #ffffff;
+    --bg-soft: #F8FAFC;
+    --bg-card: #F1F5F9;
+    --border: #E2E8F0;
+    --text: #0F172A;
+    --text-muted: #64748B;
+    --accent: #2563EB;
+    --accent-light: #EFF6FF;
+    --accent-dark: #1D4ED8;
+    --green: #10B981;
+    --font: 'Inter', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem; height: 60px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo { font-family: var(--mono); font-size: 0.9rem; color: var(--accent); font-weight: 500; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* SECTIONS */
+  section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+    padding-top: 80px; max-width: 900px; margin: 0 auto;
+  }
+  .hero-eyebrow {
+    font-family: var(--mono); font-size: 0.85rem; color: var(--accent);
+    margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;
+  }
+  .hero-eyebrow::before { content: ''; display: inline-block; width: 32px; height: 2px; background: var(--accent); }
+  .hero-name {
+    font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 700; line-height: 1.1;
+    color: var(--text); margin-bottom: 1rem; letter-spacing: -0.02em;
+  }
+  .hero-tagline {
+    font-family: var(--mono); font-size: 1.1rem; color: var(--text-muted);
+    margin-bottom: 2rem; min-height: 1.8rem;
+  }
+  .cursor { display: inline-block; width: 2px; height: 1.1em; background: var(--accent); margin-left: 2px; animation: blink 1s step-end infinite; vertical-align: text-bottom; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+  .hero-desc { font-size: 1.05rem; color: var(--text-muted); max-width: 580px; line-height: 1.75; margin-bottom: 2.5rem; }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn {
+    padding: 0.75rem 1.75rem; border-radius: 8px; font-size: 0.9rem; font-weight: 600;
+    text-decoration: none; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.5rem;
+  }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
+  .btn-outline { border: 1.5px solid var(--border); color: var(--text); background: transparent; }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+  .hero-badges { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 3rem; }
+  .badge {
+    padding: 0.35rem 0.85rem; border-radius: 999px; font-size: 0.78rem; font-weight: 500;
+    background: var(--accent-light); color: var(--accent); border: 1px solid #BFDBFE;
+    font-family: var(--mono);
+  }
+
+  /* SECTION HEADER */
+  .section-header { margin-bottom: 3rem; }
+  .section-label { font-family: var(--mono); font-size: 0.8rem; color: var(--accent); font-weight: 500; margin-bottom: 0.5rem; display: block; }
+  .section-title { font-size: 2rem; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+  .section-divider { width: 40px; height: 3px; background: var(--accent); border-radius: 2px; margin-top: 0.75rem; }
+
+  /* ABOUT */
+  #about { background: var(--bg-soft); max-width: 100%; padding: 5rem 2rem; }
+  .about-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .about-text p { color: var(--text-muted); line-height: 1.8; margin-bottom: 1rem; font-size: 0.975rem; }
+  .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .stat-card { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; }
+  .stat-num { font-size: 1.75rem; font-weight: 700; color: var(--accent); font-family: var(--mono); }
+  .stat-label { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem; }
+
+  /* PROJECTS */
+  .projects-grid { display: flex; flex-direction: column; gap: 1.5rem; }
+  .project-card {
+    border: 1px solid var(--border); border-radius: 16px; padding: 2rem;
+    background: var(--bg); transition: border-color 0.2s, box-shadow 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .project-card:hover { border-color: var(--accent); box-shadow: 0 4px 24px rgba(37,99,235,0.08); }
+  .project-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent); opacity: 0; transition: opacity 0.2s; }
+  .project-card:hover::before { opacity: 1; }
+  .project-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+  .project-type { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); background: var(--accent-light); padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: 500; }
+  .project-year { font-size: 0.8rem; color: var(--text-muted); }
+  .project-title { font-size: 1.2rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
+  .project-subtitle { font-size: 0.85rem; color: var(--accent); font-weight: 500; margin-bottom: 0.75rem; }
+  .project-desc { color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.25rem; }
+  .project-highlights { list-style: none; margin-bottom: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .project-highlights li { font-size: 0.875rem; color: var(--text-muted); padding-left: 1.25rem; position: relative; }
+  .project-highlights li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.8rem; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .tag { font-family: var(--mono); font-size: 0.75rem; padding: 0.25rem 0.6rem; border-radius: 6px; background: var(--bg-card); color: var(--text-muted); border: 1px solid var(--border); }
+
+  /* CERTS */
+  #certifications { background: var(--bg-soft); max-width: 100%; padding: 5rem 2rem; }
+  .certs-inner { max-width: 900px; margin: 0 auto; }
+  .cert-group { margin-bottom: 2.5rem; }
+  .cert-group-title { font-size: 0.85rem; font-weight: 600; color: var(--text); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+  .cert-list { display: flex; flex-direction: column; gap: 0.6rem; }
+  .cert-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 1rem; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; font-size: 0.875rem; }
+  .cert-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); margin-top: 5px; flex-shrink: 0; }
+  .cert-name { color: var(--text); font-weight: 500; }
+  .cert-year { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); margin-left: auto; flex-shrink: 0; }
+
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 0.75rem; }
+  .skill-chip { padding: 0.6rem 1rem; border: 1px solid var(--border); border-radius: 8px; font-size: 0.82rem; font-family: var(--mono); color: var(--text-muted); background: var(--bg); text-align: center; transition: all 0.2s; }
+  .skill-chip:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+
+  /* CONTACT */
+  .contact-card { background: var(--accent); border-radius: 20px; padding: 3rem; text-align: center; color: #fff; }
+  .contact-card h3 { font-size: 1.75rem; font-weight: 700; margin-bottom: 0.75rem; }
+  .contact-card p { opacity: 0.85; margin-bottom: 2rem; font-size: 0.975rem; }
+  .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+  .contact-link { padding: 0.65rem 1.5rem; border-radius: 8px; background: rgba(255,255,255,0.15); color: #fff; text-decoration: none; font-size: 0.875rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.3); transition: background 0.2s; }
+  .contact-link:hover { background: rgba(255,255,255,0.25); }
+
+  /* FOOTER */
+  footer { text-align: center; padding: 2rem; font-size: 0.8rem; color: var(--text-muted); font-family: var(--mono); border-top: 1px solid var(--border); }
+
+  @media (max-width: 640px) {
+    .about-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .nav-links { gap: 1rem; }
+    nav { padding: 0 1rem; }
+    section { padding: 4rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">sofi.dev</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div style="padding: 0 2rem;">
+  <section id="hero">
+    <div class="hero-eyebrow">Cybersecurity & Web Development</div>
+    <h1 class="hero-name">Sofiyanatul<br>Munawaroh</h1>
+    <div class="hero-tagline"><span id="typed"></span><span class="cursor"></span></div>
+    <p class="hero-desc">
+      Fresh graduate in Internet Technology Engineering from Universitas Gadjah Mada.
+      Passionate about building secure, automated, and intelligent systems —
+      from penetration testing platforms to API security assessment tools.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="mailto:sofiyanatulm.31@gmail.com" class="btn btn-outline">Get in Touch</a>
+    </div>
+    <div class="hero-badges">
+      <span class="badge">Penetration Testing</span>
+      <span class="badge">API Security</span>
+      <span class="badge">OWASP</span>
+      <span class="badge">Python · Flask</span>
+      <span class="badge">UU PDP Compliance</span>
+      <span class="badge">SDLC</span>
+    </div>
+  </section>
+</div>
+
+<!-- ABOUT -->
+<div id="about">
+  <div class="about-inner">
+    <div class="about-text">
+      <div class="section-header">
+        <span class="section-label">// about</span>
+        <h2 class="section-title">Background</h2>
+        <div class="section-divider"></div>
+      </div>
+      <p>I'm a fresh graduate in Internet Technology Engineering from Universitas Gadjah Mada (GPA 3.69) with a strong foundation in cybersecurity, web development, and system analysis.</p>
+      <p>My core interest lies in building automated security tools — particularly penetration testing platforms that map findings to industry standards like OWASP and Indonesia's UU PDP compliance framework.</p>
+      <p>Currently working as a WordPress Developer at Bintoro Corp while actively expanding my cybersecurity expertise through bootcamps and hands-on projects.</p>
+    </div>
+    <div>
+      <div class="about-stats">
+        <div class="stat-card">
+          <div class="stat-num">3.69</div>
+          <div class="stat-label">GPA at UGM</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">2</div>
+          <div class="stat-label">Pentest Projects</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">41</div>
+          <div class="stat-label">API Endpoints Tested</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">4.65</div>
+          <div class="stat-label">AI Report Score /5.00</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div style="padding: 0 2rem;">
+  <section id="projects">
+    <div class="section-header">
+      <span class="section-label">// projects</span>
+      <h2 class="section-title">Cybersecurity Projects</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="project-type">FYEP Bootcamp · Capstone</span>
+          <span class="project-year">2025</span>
+        </div>
+        <div class="project-title">PDPGuard</div>
+        <div class="project-subtitle">Web-Based Automated API Penetration Testing System</div>
+        <p class="project-desc">
+          An automated API security assessment platform that performs grey-box penetration testing and maps findings to OWASP API Security Top 10 and Indonesia's UU PDP compliance framework. Built as capstone project for Standard Chartered Foundation's Futuremakers Youth Employability Programme (FYEP).
+        </p>
+        <ul class="project-highlights">
+          <li>Served as Backend Lead & Project Lead for a 4-person team</li>
+          <li>Conducted reconnaissance across 41 API endpoints, covering all 10 OWASP API Security categories</li>
+          <li>Integrated LLM (OpenRouter) for AI-generated narrative security reports — achieved 4.655/5.00 human evaluation score</li>
+          <li>Mapped all findings to UU PDP (Indonesia's Personal Data Protection Law) compliance requirements</li>
+          <li>Managed full SDLC: requirements analysis → system architecture → development → testing → documentation</li>
+        </ul>
+        <div class="project-tags">
+          <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">OWASP API Top 10</span>
+          <span class="tag">UU PDP</span><span class="tag">LLM Integration</span><span class="tag">Grey-box Testing</span>
+          <span class="tag">SQLAlchemy</span><span class="tag">REST API</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="project-type">Undergraduate Final Project</span>
+          <span class="project-year">2025</span>
+        </div>
+        <div class="project-title">Web Interface for CVE-Based Automated Penetration Testing</div>
+        <div class="project-subtitle">Universitas Gadjah Mada — Skripsi / Final Project</div>
+        <p class="project-desc">
+          A web-based system that automates the full penetration testing pipeline for known CVE vulnerabilities, integrated with a database for structured logging and automated PDF reporting.
+        </p>
+        <ul class="project-highlights">
+          <li>Automated pentest pipeline: Scanning → Enumeration → Vulnerability Analysis → Exploitation in a single session</li>
+          <li>Implemented real-time dashboard for monitoring testing progress and results</li>
+          <li>Conducted black-box testing on CVE-2012-2122 (MySQL/MariaDB Auth Bypass) and CVE-2018-10933 (libssh Auth Bypass)</li>
+          <li>Generated automated PDF reports per CVE and combined reports with AI assistance</li>
+          <li>Adopted iterative-incremental development model; tested on Ubuntu 22.04 VM environment</li>
+        </ul>
+        <div class="project-tags">
+          <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">ReactJS</span>
+          <span class="tag">MySQL</span><span class="tag">CVE</span><span class="tag">Nmap</span>
+          <span class="tag">Black-box Testing</span><span class="tag">PDF Automation</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<!-- CERTIFICATIONS -->
+<div id="certifications">
+  <div class="certs-inner">
+    <div class="section-header">
+      <span class="section-label">// certifications</span>
+      <h2 class="section-title">Certifications & Achievements</h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="cert-group">
+      <div class="cert-group-title">Cybersecurity & Networking</div>
+      <div class="cert-list">
+        <div class="cert-item"><div class="cert-dot"></div><span class="cert-name">Cybersecurity — Standard Chartered Foundation's Futuremakers Youth Employability Programme (FYEP)</span><span class="cert-year">2026</span></div>
+        <div class="cert-item"><div class="cert-dot"></div><span class="cert-name">Cyber Security Penetration Testing Bootcamp — ID-Networkers</span><span class="cert-year">2026</span></div>
+        <div class="cert-item"><div class="cert-dot"></div><span class="cert-name">Junior Security Operation Center Analyst — Digital Talent Scholarship</span><span class="cert-year">2024</span></div>
+        <div class="cert-item"><div class="cert-dot"></div><span class="cert-name">MikroTik Certified Network Associate (MTCNA)</span><span class="cert-year">2025</span></div>
+        <div class="cert-item"><div class="cert-dot"></div><span class="cert-name">CCNAv7: Introduction to Networks</span><span class="cert-year">2022</span></div>
+        <div class="cert-item"><div class="cert-dot"></div><span class="cert-name">CCNA Cybersecurity Essentials</span><span class="cert-year">2021</span></div>
+        <div class="cert-item"><div class="cert-dot"></div><span class="cert-name">🥈 2nd Place — Olimpiade Cyber Security & IoT (ARA: A Renewal Agent 2021)</span><span class="cert-year">2021</span></div>
+        <div class="cert-item"><div class="cert-dot"></div><span class="cert-name">IoT Fundamentals: Connecting Things</span><span class="cert-year">2023</span></div>
+      </div>
+    </div>
+
+    <div class="cert-group">
+      <div class="cert-group-title">Programming & Data Science</div>
+      <div class="cert-list">
+        <div class="cert-item"><div class="cert-dot"></div><span class="cert-name">Python Fundamental for Data Science — DQLab</span><span class="cert-year">2026</span></div>
+        <div class="cert-item"><div class="cert-dot"></div><span class="cert-name">Statistic using Python for Data Science Part 1 & 2 — DQLab</span><span class="cert-year">2026</span></div>
+        <div class="cert-item"><div class="cert-dot"></div><span class="cert-name">Machine Learning With Python for Beginner — DQLab</span><span class="cert-year">2026</span></div>
+        <div class="cert-item"><div class="cert-dot"></div><span class="cert-name">GDSC Website Development</span><span class="cert-year">2024</span></div>
+      </div>
+    </div>
+
+    <div class="section-header" style="margin-top: 3rem; margin-bottom: 1.5rem;">
+      <span class="section-label">// skills</span>
+      <h2 class="section-title" style="font-size: 1.5rem;">Technical Skills</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-chip">Python</div>
+      <div class="skill-chip">Flask</div>
+      <div class="skill-chip">ReactJS</div>
+      <div class="skill-chip">MySQL</div>
+      <div class="skill-chip">OWASP</div>
+      <div class="skill-chip">Pentest</div>
+      <div class="skill-chip">API Security</div>
+      <div class="skill-chip">Linux</div>
+      <div class="skill-chip">Git</div>
+      <div class="skill-chip">Nmap</div>
+      <div class="skill-chip">WordPress</div>
+      <div class="skill-chip">SEO</div>
+      <div class="skill-chip">SDLC</div>
+      <div class="skill-chip">UU PDP</div>
+      <div class="skill-chip">Network Sec</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div style="padding: 0 2rem;">
+  <section id="contact">
+    <div class="contact-card">
+      <h3>Let's Connect</h3>
+      <p>Open to opportunities in cybersecurity, system analysis, and web development.</p>
+      <div class="contact-links">
+        <a href="mailto:sofiyanatulm.31@gmail.com" class="contact-link">✉ Email</a>
+        <a href="https://www.linkedin.com/in/sofiyanatul-munawaroh-95233221a/" class="contact-link" target="_blank">LinkedIn</a>
+        <a href="https://bit.ly/Portofolio-Sofi" class="contact-link" target="_blank">Portfolio</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <span>sofiyanatul munawaroh · surakarta, indonesia · 2026</span>
+</footer>
+
+<script>
+  const phrases = [
+    'Cybersecurity Enthusiast',
+    'Penetration Tester',
+    'Backend Developer',
+    'System Analyst'
+  ];
+  let pi = 0, ci = 0, deleting = false;
+  const el = document.getElementById('typed');
+
+  function type() {
+    const word = phrases[pi];
+    if (!deleting) {
+      el.textContent = word.slice(0, ++ci);
+      if (ci === word.length) { deleting = true; setTimeout(type, 1800); return; }
+    } else {
+      el.textContent = word.slice(0, --ci);
+      if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
+    }
+    setTimeout(type, deleting ? 60 : 100);
+  }
+  type();
+</script>
+</body>
+</html>
