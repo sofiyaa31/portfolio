@@ -7,22 +7,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --bg: #ffffff;
-    --bg-soft: #F8FAFC;
-    --bg-card: #F1F5F9;
-    --border: #E2E8F0;
-    --text: #0F172A;
-    --text-muted: #64748B;
-    --accent: #2563EB;
-    --accent-light: #EFF6FF;
-    --accent-dark: #1D4ED8;
-    --green: #10B981;
-    --font: 'Inter', sans-serif;
-    --mono: 'JetBrains Mono', monospace;
+    --bg: #ffffff; --bg-soft: #F8FAFC; --bg-card: #F1F5F9; --border: #E2E8F0;
+    --text: #0F172A; --text-muted: #64748B; --accent: #2563EB;
+    --accent-light: #EFF6FF; --accent-dark: #1D4ED8;
+    --font: 'Inter', sans-serif; --mono: 'JetBrains Mono', monospace;
   }
-
   html { scroll-behavior: smooth; }
   body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; }
 
@@ -43,41 +33,22 @@
   section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
 
   /* HERO */
-  #hero {
-    min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
-    padding-top: 80px; max-width: 900px; margin: 0 auto;
-  }
-  .hero-eyebrow {
-    font-family: var(--mono); font-size: 0.85rem; color: var(--accent);
-    margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;
-  }
+  #hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-top: 80px; max-width: 900px; margin: 0 auto; }
+  .hero-eyebrow { font-family: var(--mono); font-size: 0.85rem; color: var(--accent); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
   .hero-eyebrow::before { content: ''; display: inline-block; width: 32px; height: 2px; background: var(--accent); }
-  .hero-name {
-    font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 700; line-height: 1.1;
-    color: var(--text); margin-bottom: 1rem; letter-spacing: -0.02em;
-  }
-  .hero-tagline {
-    font-family: var(--mono); font-size: 1.1rem; color: var(--text-muted);
-    margin-bottom: 2rem; min-height: 1.8rem;
-  }
+  .hero-name { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 700; line-height: 1.1; color: var(--text); margin-bottom: 1rem; letter-spacing: -0.02em; }
+  .hero-tagline { font-family: var(--mono); font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2rem; min-height: 1.8rem; }
   .cursor { display: inline-block; width: 2px; height: 1.1em; background: var(--accent); margin-left: 2px; animation: blink 1s step-end infinite; vertical-align: text-bottom; }
   @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
   .hero-desc { font-size: 1.05rem; color: var(--text-muted); max-width: 580px; line-height: 1.75; margin-bottom: 2.5rem; }
   .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn {
-    padding: 0.75rem 1.75rem; border-radius: 8px; font-size: 0.9rem; font-weight: 600;
-    text-decoration: none; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.5rem;
-  }
+  .btn { padding: 0.75rem 1.75rem; border-radius: 8px; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; }
   .btn-primary { background: var(--accent); color: #fff; }
   .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
   .btn-outline { border: 1.5px solid var(--border); color: var(--text); background: transparent; }
   .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
   .hero-badges { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 3rem; }
-  .badge {
-    padding: 0.35rem 0.85rem; border-radius: 999px; font-size: 0.78rem; font-weight: 500;
-    background: var(--accent-light); color: var(--accent); border: 1px solid #BFDBFE;
-    font-family: var(--mono);
-  }
+  .badge { padding: 0.35rem 0.85rem; border-radius: 999px; font-size: 0.78rem; font-weight: 500; background: var(--accent-light); color: var(--accent); border: 1px solid #BFDBFE; font-family: var(--mono); }
 
   /* SECTION HEADER */
   .section-header { margin-bottom: 3rem; }
@@ -96,11 +67,7 @@
 
   /* PROJECTS */
   .projects-grid { display: flex; flex-direction: column; gap: 1.5rem; }
-  .project-card {
-    border: 1px solid var(--border); border-radius: 16px; padding: 2rem;
-    background: var(--bg); transition: border-color 0.2s, box-shadow 0.2s;
-    position: relative; overflow: hidden;
-  }
+  .project-card { border: 1px solid var(--border); border-radius: 16px; padding: 2rem; background: var(--bg); transition: border-color 0.2s, box-shadow 0.2s; position: relative; overflow: hidden; }
   .project-card:hover { border-color: var(--accent); box-shadow: 0 4px 24px rgba(37,99,235,0.08); }
   .project-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent); opacity: 0; transition: opacity 0.2s; }
   .project-card:hover::before { opacity: 1; }
@@ -115,17 +82,25 @@
   .project-highlights li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.8rem; }
   .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
   .tag { font-family: var(--mono); font-size: 0.75rem; padding: 0.25rem 0.6rem; border-radius: 6px; background: var(--bg-card); color: var(--text-muted); border: 1px solid var(--border); }
+  .doc-btns { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.25rem; }
+  .doc-btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 1rem; border-radius: 7px; font-size: 0.8rem; font-weight: 500; border: 1.5px solid var(--accent); color: var(--accent); background: var(--accent-light); cursor: pointer; transition: all 0.2s; font-family: var(--font); }
+  .doc-btn:hover { background: var(--accent); color: #fff; }
 
-  /* CERTS */
+  /* CERTIFICATIONS */
   #certifications { background: var(--bg-soft); max-width: 100%; padding: 5rem 2rem; }
   .certs-inner { max-width: 900px; margin: 0 auto; }
   .cert-group { margin-bottom: 2.5rem; }
   .cert-group-title { font-size: 0.85rem; font-weight: 600; color: var(--text); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
   .cert-list { display: flex; flex-direction: column; gap: 0.6rem; }
   .cert-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 1rem; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; font-size: 0.875rem; }
+  .cert-item.clickable { cursor: pointer; transition: border-color 0.2s, background 0.2s; }
+  .cert-item.clickable:hover { border-color: var(--accent); background: var(--accent-light); }
+  .cert-item.clickable:hover .cert-name { color: var(--accent); }
   .cert-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); margin-top: 5px; flex-shrink: 0; }
-  .cert-name { color: var(--text); font-weight: 500; }
+  .cert-name { color: var(--text); font-weight: 500; flex: 1; }
   .cert-year { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); margin-left: auto; flex-shrink: 0; }
+  .cert-view-icon { font-size: 0.75rem; color: var(--accent); opacity: 0; transition: opacity 0.2s; flex-shrink: 0; margin-top: 2px; }
+  .cert-item.clickable:hover .cert-view-icon { opacity: 1; }
 
   /* SKILLS */
   .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 0.75rem; }
@@ -139,6 +114,21 @@
   .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
   .contact-link { padding: 0.65rem 1.5rem; border-radius: 8px; background: rgba(255,255,255,0.15); color: #fff; text-decoration: none; font-size: 0.875rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.3); transition: background 0.2s; }
   .contact-link:hover { background: rgba(255,255,255,0.25); }
+
+  /* MODAL */
+  .modal-overlay { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(15,23,42,0.75); backdrop-filter: blur(6px); align-items: center; justify-content: center; padding: 1.5rem; }
+  .modal-overlay.active { display: flex; }
+  .modal-box { background: var(--bg); border-radius: 16px; width: 100%; max-width: 860px; max-height: 90vh; display: flex; flex-direction: column; box-shadow: 0 24px 64px rgba(0,0,0,0.25); overflow: hidden; }
+  .modal-header { padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+  .modal-title { font-weight: 600; font-size: 0.95rem; color: var(--text); }
+  .modal-close { width: 32px; height: 32px; border-radius: 8px; border: 1px solid var(--border); background: transparent; cursor: pointer; font-size: 1rem; color: var(--text-muted); display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+  .modal-close:hover { background: var(--bg-card); color: var(--text); }
+  .modal-body { flex: 1; overflow: hidden; }
+  .modal-body iframe { width: 100%; height: 100%; min-height: 520px; border: none; display: block; }
+  .no-preview { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 320px; color: var(--text-muted); gap: 1rem; text-align: center; padding: 2rem; }
+  .no-preview .icon { font-size: 3rem; }
+  .no-preview p { font-size: 0.9rem; line-height: 1.7; }
+  .no-preview code { background: var(--bg-card); padding: 0.1rem 0.4rem; border-radius: 4px; font-family: var(--mono); font-size: 0.82rem; color: var(--accent); }
 
   /* FOOTER */
   footer { text-align: center; padding: 2rem; font-size: 0.8rem; color: var(--text-muted); font-family: var(--mono); border-top: 1px solid var(--border); }
@@ -169,11 +159,7 @@
     <div class="hero-eyebrow">Cybersecurity & Web Development</div>
     <h1 class="hero-name">Sofiyanatul<br>Munawaroh</h1>
     <div class="hero-tagline"><span id="typed"></span><span class="cursor"></span></div>
-    <p class="hero-desc">
-      Fresh graduate in Internet Technology Engineering from Universitas Gadjah Mada.
-      Passionate about building secure, automated, and intelligent systems —
-      from penetration testing platforms to API security assessment tools.
-    </p>
+    <p class="hero-desc">Fresh graduate in Internet Technology Engineering from Universitas Gadjah Mada. Passionate about building secure, automated, and intelligent systems — from penetration testing platforms to API security assessment tools.</p>
     <div class="hero-cta">
       <a href="#projects" class="btn btn-primary">View Projects</a>
       <a href="mailto:sofiyanatulm.31@gmail.com" class="btn btn-outline">Get in Touch</a>
@@ -204,22 +190,10 @@
     </div>
     <div>
       <div class="about-stats">
-        <div class="stat-card">
-          <div class="stat-num">3.69</div>
-          <div class="stat-label">GPA at UGM</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">2</div>
-          <div class="stat-label">Pentest Projects</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">41</div>
-          <div class="stat-label">API Endpoints Tested</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">4.65</div>
-          <div class="stat-label">AI Report Score /5.00</div>
-        </div>
+        <div class="stat-card"><div class="stat-num">3.69</div><div class="stat-label">GPA at UGM</div></div>
+        <div class="stat-card"><div class="stat-num">2</div><div class="stat-label">Pentest Projects</div></div>
+        <div class="stat-card"><div class="stat-num">41</div><div class="stat-label">API Endpoints Tested</div></div>
+        <div class="stat-card"><div class="stat-num">4.65</div><div class="stat-label">AI Report Score /5.00</div></div>
       </div>
     </div>
   </div>
@@ -242,9 +216,7 @@
         </div>
         <div class="project-title">PDPGuard</div>
         <div class="project-subtitle">Web-Based Automated API Penetration Testing System</div>
-        <p class="project-desc">
-          An automated API security assessment platform that performs grey-box penetration testing and maps findings to OWASP API Security Top 10 and Indonesia's UU PDP compliance framework. Built as capstone project for Standard Chartered Foundation's Futuremakers Youth Employability Programme (FYEP).
-        </p>
+        <p class="project-desc">An automated API security assessment platform that performs grey-box penetration testing and maps findings to OWASP API Security Top 10 and Indonesia's UU PDP compliance framework. Built as capstone project for Standard Chartered Foundation's Futuremakers Youth Employability Programme (FYEP).</p>
         <ul class="project-highlights">
           <li>Served as Backend Lead & Project Lead for a 4-person team</li>
           <li>Conducted reconnaissance across 41 API endpoints, covering all 10 OWASP API Security categories</li>
@@ -257,6 +229,10 @@
           <span class="tag">UU PDP</span><span class="tag">LLM Integration</span><span class="tag">Grey-box Testing</span>
           <span class="tag">SQLAlchemy</span><span class="tag">REST API</span>
         </div>
+        <div class="doc-btns">
+          <button class="doc-btn" onclick="openModal('PDPGuard — Presentation', 'docs/pdpguard-presentation.pdf')">📊 Presentation</button>
+          <button class="doc-btn" onclick="openModal('PDPGuard — Project Report', 'docs/pdpguard-report.pdf')">📄 Project Report</button>
+        </div>
       </div>
 
       <div class="project-card">
@@ -266,11 +242,9 @@
         </div>
         <div class="project-title">Web Interface for CVE-Based Automated Penetration Testing</div>
         <div class="project-subtitle">Universitas Gadjah Mada — Skripsi / Final Project</div>
-        <p class="project-desc">
-          A web-based system that automates the full penetration testing pipeline for known CVE vulnerabilities, integrated with a database for structured logging and automated PDF reporting.
-        </p>
+        <p class="project-desc">A web-based system that automates the full penetration testing pipeline for known CVE vulnerabilities, integrated with a database for structured logging and automated PDF reporting.</p>
         <ul class="project-highlights">
-          <li>Automated pentest pipeline: Scanning → Enumeration → Vulnerability Analysis → Exploitation in a single session</li>
+          <li>Automated pentest pipeline: Scanning → Enumeration → Vulnerability Analysis → Exploitation in one session</li>
           <li>Implemented real-time dashboard for monitoring testing progress and results</li>
           <li>Conducted black-box testing on CVE-2012-2122 (MySQL/MariaDB Auth Bypass) and CVE-2018-10933 (libssh Auth Bypass)</li>
           <li>Generated automated PDF reports per CVE and combined reports with AI assistance</li>
@@ -280,6 +254,9 @@
           <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">ReactJS</span>
           <span class="tag">MySQL</span><span class="tag">CVE</span><span class="tag">Nmap</span>
           <span class="tag">Black-box Testing</span><span class="tag">PDF Automation</span>
+        </div>
+        <div class="doc-btns">
+          <button class="doc-btn" onclick="openModal('CVE Pentest — Final Report (Skripsi)', 'docs/skripsi-report.pdf')">📄 Final Report</button>
         </div>
       </div>
 
@@ -295,28 +272,29 @@
       <h2 class="section-title">Certifications & Achievements</h2>
       <div class="section-divider"></div>
     </div>
+    <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:2rem;font-family:var(--mono);">💡 Klik sertifikat untuk melihat file</p>
 
     <div class="cert-group">
       <div class="cert-group-title">Cybersecurity & Networking</div>
       <div class="cert-list">
-        <div class="cert-item"><div class="cert-dot"></div><span class="cert-name">Cybersecurity — Standard Chartered Foundation's Futuremakers Youth Employability Programme (FYEP)</span><span class="cert-year">2026</span></div>
-        <div class="cert-item"><div class="cert-dot"></div><span class="cert-name">Cyber Security Penetration Testing Bootcamp — ID-Networkers</span><span class="cert-year">2026</span></div>
-        <div class="cert-item"><div class="cert-dot"></div><span class="cert-name">Junior Security Operation Center Analyst — Digital Talent Scholarship</span><span class="cert-year">2024</span></div>
-        <div class="cert-item"><div class="cert-dot"></div><span class="cert-name">MikroTik Certified Network Associate (MTCNA)</span><span class="cert-year">2025</span></div>
-        <div class="cert-item"><div class="cert-dot"></div><span class="cert-name">CCNAv7: Introduction to Networks</span><span class="cert-year">2022</span></div>
-        <div class="cert-item"><div class="cert-dot"></div><span class="cert-name">CCNA Cybersecurity Essentials</span><span class="cert-year">2021</span></div>
-        <div class="cert-item"><div class="cert-dot"></div><span class="cert-name">🥈 2nd Place — Olimpiade Cyber Security & IoT (ARA: A Renewal Agent 2021)</span><span class="cert-year">2021</span></div>
-        <div class="cert-item"><div class="cert-dot"></div><span class="cert-name">IoT Fundamentals: Connecting Things</span><span class="cert-year">2023</span></div>
+        <div class="cert-item clickable" onclick="openModal('Cybersecurity — FYEP Standard Chartered', 'certificates/fyep-cybersecurity.pdf')"><div class="cert-dot"></div><span class="cert-name">Cybersecurity — Standard Chartered Foundation's Futuremakers Youth Employability Programme (FYEP)</span><span class="cert-view-icon">👁</span><span class="cert-year">2026</span></div>
+        <div class="cert-item clickable" onclick="openModal('Cyber Security Penetration Testing — ID-Networkers', 'certificates/idnetworkers-pentest.pdf')"><div class="cert-dot"></div><span class="cert-name">Cyber Security Penetration Testing Bootcamp — ID-Networkers</span><span class="cert-view-icon">👁</span><span class="cert-year">2026</span></div>
+        <div class="cert-item clickable" onclick="openModal('Junior SOC Analyst — Digital Talent Scholarship', 'certificates/soc-analyst.pdf')"><div class="cert-dot"></div><span class="cert-name">Junior Security Operation Center Analyst — Digital Talent Scholarship</span><span class="cert-view-icon">👁</span><span class="cert-year">2024</span></div>
+        <div class="cert-item clickable" onclick="openModal('MikroTik Certified Network Associate (MTCNA)', 'certificates/mtcna.pdf')"><div class="cert-dot"></div><span class="cert-name">MikroTik Certified Network Associate (MTCNA)</span><span class="cert-view-icon">👁</span><span class="cert-year">2025</span></div>
+        <div class="cert-item clickable" onclick="openModal('CCNAv7: Introduction to Networks', 'certificates/ccna-intro.pdf')"><div class="cert-dot"></div><span class="cert-name">CCNAv7: Introduction to Networks</span><span class="cert-view-icon">👁</span><span class="cert-year">2022</span></div>
+        <div class="cert-item clickable" onclick="openModal('CCNA Cybersecurity Essentials', 'certificates/ccna-cybersecurity.pdf')"><div class="cert-dot"></div><span class="cert-name">CCNA Cybersecurity Essentials</span><span class="cert-view-icon">👁</span><span class="cert-year">2021</span></div>
+        <div class="cert-item clickable" onclick="openModal('2nd Place — Olimpiade Cyber Security & IoT (ARA 2021)', 'certificates/ara-2nd-place.pdf')"><div class="cert-dot"></div><span class="cert-name">🥈 2nd Place — Olimpiade Cyber Security & IoT (ARA: A Renewal Agent 2021)</span><span class="cert-view-icon">👁</span><span class="cert-year">2021</span></div>
+        <div class="cert-item clickable" onclick="openModal('IoT Fundamentals: Connecting Things', 'certificates/iot-fundamentals.pdf')"><div class="cert-dot"></div><span class="cert-name">IoT Fundamentals: Connecting Things</span><span class="cert-view-icon">👁</span><span class="cert-year">2023</span></div>
       </div>
     </div>
 
     <div class="cert-group">
       <div class="cert-group-title">Programming & Data Science</div>
       <div class="cert-list">
-        <div class="cert-item"><div class="cert-dot"></div><span class="cert-name">Python Fundamental for Data Science — DQLab</span><span class="cert-year">2026</span></div>
-        <div class="cert-item"><div class="cert-dot"></div><span class="cert-name">Statistic using Python for Data Science Part 1 & 2 — DQLab</span><span class="cert-year">2026</span></div>
-        <div class="cert-item"><div class="cert-dot"></div><span class="cert-name">Machine Learning With Python for Beginner — DQLab</span><span class="cert-year">2026</span></div>
-        <div class="cert-item"><div class="cert-dot"></div><span class="cert-name">GDSC Website Development</span><span class="cert-year">2024</span></div>
+        <div class="cert-item clickable" onclick="openModal('Python Fundamental for Data Science — DQLab', 'certificates/dqlab-python.pdf')"><div class="cert-dot"></div><span class="cert-name">Python Fundamental for Data Science — DQLab</span><span class="cert-view-icon">👁</span><span class="cert-year">2026</span></div>
+        <div class="cert-item clickable" onclick="openModal('Statistic using Python — DQLab', 'certificates/dqlab-statistic.pdf')"><div class="cert-dot"></div><span class="cert-name">Statistic using Python for Data Science Part 1 & 2 — DQLab</span><span class="cert-view-icon">👁</span><span class="cert-year">2026</span></div>
+        <div class="cert-item clickable" onclick="openModal('Machine Learning With Python — DQLab', 'certificates/dqlab-ml.pdf')"><div class="cert-dot"></div><span class="cert-name">Machine Learning With Python for Beginner — DQLab</span><span class="cert-view-icon">👁</span><span class="cert-year">2026</span></div>
+        <div class="cert-item clickable" onclick="openModal('GDSC Website Development', 'certificates/gdsc-web.pdf')"><div class="cert-dot"></div><span class="cert-name">GDSC Website Development</span><span class="cert-view-icon">👁</span><span class="cert-year">2024</span></div>
       </div>
     </div>
 
@@ -325,20 +303,13 @@
       <h2 class="section-title" style="font-size: 1.5rem;">Technical Skills</h2>
     </div>
     <div class="skills-grid">
-      <div class="skill-chip">Python</div>
-      <div class="skill-chip">Flask</div>
-      <div class="skill-chip">ReactJS</div>
-      <div class="skill-chip">MySQL</div>
-      <div class="skill-chip">OWASP</div>
-      <div class="skill-chip">Pentest</div>
-      <div class="skill-chip">API Security</div>
-      <div class="skill-chip">Linux</div>
-      <div class="skill-chip">Git</div>
-      <div class="skill-chip">Nmap</div>
-      <div class="skill-chip">WordPress</div>
-      <div class="skill-chip">SEO</div>
-      <div class="skill-chip">SDLC</div>
-      <div class="skill-chip">UU PDP</div>
+      <div class="skill-chip">Python</div><div class="skill-chip">Flask</div>
+      <div class="skill-chip">ReactJS</div><div class="skill-chip">MySQL</div>
+      <div class="skill-chip">OWASP</div><div class="skill-chip">Pentest</div>
+      <div class="skill-chip">API Security</div><div class="skill-chip">Linux</div>
+      <div class="skill-chip">Git</div><div class="skill-chip">Nmap</div>
+      <div class="skill-chip">WordPress</div><div class="skill-chip">SEO</div>
+      <div class="skill-chip">SDLC</div><div class="skill-chip">UU PDP</div>
       <div class="skill-chip">Network Sec</div>
     </div>
   </div>
@@ -353,7 +324,7 @@
       <div class="contact-links">
         <a href="mailto:sofiyanatulm.31@gmail.com" class="contact-link">✉ Email</a>
         <a href="https://www.linkedin.com/in/sofiyanatul-munawaroh-95233221a/" class="contact-link" target="_blank">LinkedIn</a>
-        <a href="https://bit.ly/Portofolio-Sofi" class="contact-link" target="_blank">Portfolio</a>
+        <a href="https://sofiyaa31.github.io/portfolio/" class="contact-link" target="_blank">Portfolio</a>
       </div>
     </div>
   </section>
@@ -363,16 +334,22 @@
   <span>sofiyanatul munawaroh · surakarta, indonesia · 2026</span>
 </footer>
 
+<!-- MODAL -->
+<div class="modal-overlay" id="docModal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span class="modal-title" id="modalTitle">Document</span>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
 <script>
-  const phrases = [
-    'Cybersecurity Enthusiast',
-    'Penetration Tester',
-    'Backend Developer',
-    'System Analyst'
-  ];
+  // TYPING ANIMATION
+  const phrases = ['Cybersecurity Enthusiast','Penetration Tester','Backend Developer','System Analyst'];
   let pi = 0, ci = 0, deleting = false;
   const el = document.getElementById('typed');
-
   function type() {
     const word = phrases[pi];
     if (!deleting) {
@@ -385,6 +362,38 @@
     setTimeout(type, deleting ? 60 : 100);
   }
   type();
+
+  // MODAL
+  function openModal(title, filePath) {
+    document.getElementById('modalTitle').textContent = title;
+    const body = document.getElementById('modalBody');
+    const ext = filePath.split('.').pop().toLowerCase();
+    if (ext === 'pdf') {
+      body.innerHTML = `<iframe src="${filePath}#toolbar=1" title="${title}"></iframe>`;
+    } else if (['ppt','pptx'].includes(ext)) {
+      const src = encodeURIComponent(location.origin + '/' + filePath);
+      body.innerHTML = `<iframe src="https://view.officeapps.live.com/op/embed.aspx?src=${src}" title="${title}"></iframe>`;
+    } else if (['jpg','jpeg','png','webp'].includes(ext)) {
+      body.innerHTML = `<div style="padding:1.5rem;text-align:center;overflow:auto;max-height:520px;"><img src="${filePath}" style="max-width:100%;border-radius:8px;" alt="${title}"></div>`;
+    } else {
+      body.innerHTML = `<div class="no-preview"><div class="icon">📁</div><p>File belum tersedia.<br>Upload file ke folder <code>docs/</code> atau <code>certificates/</code> di GitHub repo kamu, dengan nama file sesuai path yang sudah diset.</p></div>`;
+    }
+    document.getElementById('docModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('docModal').classList.remove('active');
+    document.getElementById('modalBody').innerHTML = '';
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('docModal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
 </script>
 </body>
 </html>
