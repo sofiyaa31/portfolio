@@ -203,7 +203,7 @@
       </div>
       <p>I'm a fresh graduate in Internet Technology Engineering from Universitas Gadjah Mada (GPA 3.69) with hands-on experience across cybersecurity, system analysis, web development, and software quality assurance.</p>
       <p>I enjoy working across the full software lifecycle — from analyzing requirements and designing systems, to building and testing applications. My strongest project, PDPGuard, demonstrates my ability to lead a team, architect a system from scratch, and deliver measurable results under real competition conditions.</p>
-      <p>Currently working as a WordPress Developer at Bintoro Corp while actively pursuing opportunities in cybersecurity, system analysis, and tech-related roles.</p>
+      <p>Actively seeking opportunities in cybersecurity, system analysis, QA, and web development — open to full-time roles, internships, and relocation.</p>
     </div>
     <div>
       <div class="about-stats">
@@ -401,6 +401,109 @@
         </div>
       </div>
 
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="project-type">CyberSec Labs by Visionet · VAPT Report</span>
+          <span class="project-year">2026</span>
+        </div>
+        <div class="project-title">VAPT — Metasploitable 2 (vsftpd 2.3.4 Backdoor)</div>
+        <div class="project-subtitle">Full Vulnerability Assessment & Penetration Testing Cycle in an Isolated Lab</div>
+        <p class="project-desc">An end-to-end VAPT engagement against a Metasploitable 2 VM in an isolated VirtualBox NAT network, from reconnaissance through exploitation and post-exploitation. Identified and proved a critical remote code execution vulnerability (CVE-2011-2523) in the FTP service, gaining root access and documenting the full attack chain in a formal report.</p>
+        <ul class="project-highlights">
+          <li>Performed host discovery and full-port enumeration with netdiscover and Nmap (-sC -sV -p-), fingerprinting 15+ open services</li>
+          <li>Identified a critical vsftpd 2.3.4 backdoor vulnerability (CVE-2011-2523 / CWE-78, CVSS 9.8) from service version enumeration</li>
+          <li>Exploited the backdoor via a custom Python script and an Exploit-DB script, achieving unauthenticated remote root access</li>
+          <li>Validated post-exploitation access by confirming network ownership, inspecting the backdoor socket (netstat), and auditing auth.log</li>
+          <li>Delivered a formal report with executive summary, findings, and prioritized remediation recommendations</li>
+        </ul>
+        <div class="project-tags">
+          <span class="tag">VAPT</span><span class="tag">Metasploit</span><span class="tag">Nmap</span>
+          <span class="tag">CVE-2011-2523</span><span class="tag">Post-Exploitation</span><span class="tag">Report Writing</span>
+        </div>
+        <div class="scope-note">
+          <span class="dot">🔒</span>
+          <span>Conducted entirely within an isolated VirtualBox lab environment against an intentionally vulnerable training VM. No real or third-party systems were targeted.</span>
+        </div>
+        <div class="doc-btns">
+          <button class="doc-btn" onclick="openModal('VAPT — Metasploitable 2', 'docs/vapt-metasploitable2-writeup.pdf')">📄 Full Report</button>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="project-type">CyberSec Labs by Visionet · VA Report</span>
+          <span class="project-year">2026</span>
+        </div>
+        <div class="project-title">Vulnerability Assessment — OWASP ZAP DAST Scan</div>
+        <div class="project-subtitle">Automated Dynamic Application Security Testing on Public Test Targets</div>
+        <p class="project-desc">A dynamic application security testing (DAST) engagement using OWASP ZAP against publicly available intentionally-vulnerable test sites, producing a full vulnerability matrix across risk levels and a prioritized remediation plan.</p>
+        <ul class="project-highlights">
+          <li>Scanned 3 target sites, surfacing 17 unique alert types across 106 endpoints</li>
+          <li>Identified a High-risk DOM-based XSS (CWE-79) with a working payload and impact analysis</li>
+          <li>Found missing Anti-CSRF tokens on login forms (CWE-352) and unencrypted HTTP-only traffic (CWE-311)</li>
+          <li>Flagged missing security headers (CSP, X-Frame-Options, SRI) and insecure cookie flags (HttpOnly, SameSite)</li>
+          <li>Compiled findings into a prioritized remediation plan (Urgent → Low) with concrete fixes per issue</li>
+        </ul>
+        <div class="project-tags">
+          <span class="tag">OWASP ZAP</span><span class="tag">DAST</span><span class="tag">XSS</span>
+          <span class="tag">CSRF</span><span class="tag">Security Headers</span><span class="tag">Web App Security</span>
+        </div>
+        <div class="scope-note">
+          <span class="dot">🔒</span>
+          <span>Scanned only publicly available, intentionally-vulnerable demo/training sites designated for security testing practice.</span>
+        </div>
+        <div class="doc-btns">
+          <button class="doc-btn" onclick="openModal('Vulnerability Assessment — OWASP ZAP', 'docs/va-owasp-zap-writeup.pdf')">📄 Full Report</button>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="project-type">CyberSec Labs by Visionet · DFIR Write-up</span>
+          <span class="project-year">2026</span>
+        </div>
+        <div class="project-title">OS Fundamental (Windows) — Incident Investigation Challenges</div>
+        <div class="project-subtitle">PowerShell-based Windows Forensics & Persistence Hunting</div>
+        <p class="project-desc">A 5-challenge Windows forensics lab investigating a suspicious local account, tracing its creation and first login, and uncovering a disguised scheduled-task persistence mechanism — all using native PowerShell and CLI tooling, without third-party forensic software.</p>
+        <ul class="project-highlights">
+          <li>Identified the most recently created local account by analyzing SID/RID ordering via Get-LocalUser</li>
+          <li>Pinpointed the account's first login timestamp (UTC) using Get-CimInstance on Win32_UserProfile</li>
+          <li>Investigated Task Scheduler for suspicious persistence, isolating a disguised task masking as an "UpdateCheck"</li>
+          <li>Used schtasks /query /v to extract the task's real command, author, and trigger condition (logon-based)</li>
+          <li>Traced the task's creation back to its originating account and profile creation timestamp</li>
+        </ul>
+        <div class="project-tags">
+          <span class="tag">Windows Forensics</span><span class="tag">PowerShell</span><span class="tag">DFIR</span>
+          <span class="tag">Persistence Detection</span><span class="tag">Task Scheduler</span>
+        </div>
+        <div class="doc-btns">
+          <button class="doc-btn" onclick="openModal('OS Fundamental (Windows) — Investigation Write-up', 'docs/os-fundamental-windows-writeup.pdf')">📄 Full Write-up</button>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="project-type">CyberSec Labs by Visionet · Network Labs</span>
+          <span class="project-year">2026</span>
+        </div>
+        <div class="project-title">Network Labs — VLSM, VLAN Trunking & SSH Pivoting</div>
+        <div class="project-subtitle">4 Hands-on Network Engineering & Access Challenges via Live Server Simulation</div>
+        <p class="project-desc">A set of 4 practical network engineering challenges completed against live simulated servers and switches, covering subnetting design, switch configuration, and SSH-based network pivoting techniques to reach isolated hosts.</p>
+        <ul class="project-highlights">
+          <li>Designed a VLSM subnetting scheme for a /24 network across 4 departments by manually calculating subnet masks and ranges</li>
+          <li>Configured VLAN segmentation and trunking on a simulated Cisco switch (VLAN creation, access ports, trunk uplink)</li>
+          <li>Used SSH local port forwarding to reach a dashboard service bound only to localhost on a remote server</li>
+          <li>Chained SSH access through a bastion host to reach an internally-isolated database server with no direct route</li>
+        </ul>
+        <div class="project-tags">
+          <span class="tag">VLSM Subnetting</span><span class="tag">Cisco IOS</span><span class="tag">VLAN Trunking</span>
+          <span class="tag">SSH Port Forwarding</span><span class="tag">Bastion Host</span><span class="tag">Network Pivoting</span>
+        </div>
+        <div class="doc-btns">
+          <button class="doc-btn" onclick="openModal('Network Labs — Full Write-up', 'docs/network-labs-writeup.pdf')">📄 Full Write-up</button>
+        </div>
+      </div>
+
     </div>
   </section>
 </div>
@@ -476,7 +579,7 @@
 </div>
 
 <footer>
-  <span>sofiyanatul munawaroh · purbalingga, indonesia · 2026</span>
+  <span>sofiyanatul munawaroh · surakarta, indonesia · 2026</span>
 </footer>
 
 <!-- MODAL -->
