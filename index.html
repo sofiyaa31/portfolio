@@ -311,22 +311,26 @@
           <span class="project-year">2026</span>
         </div>
         <div class="project-title">QA Testing — Restful-Booker-Platform</div>
-        <div class="project-subtitle">Manual & Exploratory Testing on a Public Hotel Booking Demo Application</div>
-        <p class="project-desc">An end-to-end manual QA testing project on Restful-Booker-Platform, a public booking-system sandbox built for testing practice. Built to demonstrate the same testing methodology used in my role as SQA at a healthcare software company — test planning, test case design, and bug reporting — on a public application so the process can be shared openly without exposing confidential client work.</p>
+        <div class="project-subtitle">Manual, Exploratory & Automated Testing on a Public Hotel Booking Demo Application</div>
+        <p class="project-desc">An end-to-end QA project on Restful-Booker-Platform, a public booking-system sandbox built for testing practice — covering manual/exploratory testing, formal documentation, and test automation with Playwright. Built to demonstrate the same testing methodology used in my role as SQA at a healthcare software company — test planning, test case design, bug reporting, and automation — on a public application so the process can be shared openly without exposing confidential client work.</p>
         <ul class="project-highlights">
           <li>Authored a formal test plan (scope, strategy, environment, entry/exit criteria) and 31 test cases covering booking flow, admin panel, contact form, and responsiveness</li>
           <li>Found and documented 4 critical/high-severity bugs with full reproduction steps and screenshot evidence, including incorrect night/price calculation, unvalidated negative-price bookings, and no double-booking prevention</li>
           <li>Identified a systemic pattern across findings — lack of date validation recurring at multiple points in the booking flow — rather than reporting isolated issues</li>
           <li>Revised test scope mid-project after discovering the application's actual admin panel structure differed from initial assumptions, adding 8 new test cases to match real functionality</li>
+          <li>Automated 7 test cases with Playwright (TypeScript) using a Page Object Model, including 2 regression tests that intentionally assert correct behavior for known defects — so a future fix is caught automatically</li>
+          <li>Debugged real-world automation flakiness (a DOM-detachment race condition on room selection, a hidden "reveal-before-fill" interaction step) by tracing failures back to root cause rather than masking them with blind retries</li>
         </ul>
         <div class="project-tags">
           <span class="tag">Manual Testing</span><span class="tag">Exploratory Testing</span><span class="tag">Test Case Design</span>
-          <span class="tag">Bug Reporting</span><span class="tag">Test Planning</span><span class="tag">QA Methodology</span>
+          <span class="tag">Bug Reporting</span><span class="tag">Test Planning</span><span class="tag">Playwright</span>
+          <span class="tag">Test Automation</span><span class="tag">Page Object Model</span><span class="tag">TypeScript</span>
         </div>
         <div class="doc-btns">
           <button class="doc-btn" onclick="openModal('QA — Test Plan', 'docs/qa-rbp-testplan.pdf')">📄 Test Plan</button>
           <a href="docs/qa-rbp-testcases.xlsx" class="doc-link"><button class="doc-btn">📊 Test Case Sheet</button></a>
           <button class="doc-btn" onclick="openModal('QA — Bug Report', 'docs/qa-rbp-bugreport.pdf')">🐞 Bug Report</button>
+          <a href="https://github.com/sofiyaa31/qa-rbp-automation" target="_blank" class="doc-link"><button class="doc-btn">🎭 Automation Repo</button></a>
         </div>
       </div>
 
