@@ -335,6 +335,32 @@
         </div>
       </div>
 
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="project-type">Self-Directed QA Practice</span>
+          <span class="project-year">2026</span>
+        </div>
+        <div class="project-title">QA Testing — ParaBank Online Banking</div>
+        <div class="project-subtitle">Manual & Exploratory Testing of Financial Business Logic on a Public Banking Demo</div>
+        <p class="project-desc">An end-to-end QA project on ParaBank, Parasoft's official public online-banking demo application. Chosen deliberately as a different domain from my booking-system project — banking applications carry stricter business-logic expectations (balance integrity, transaction validation), making it a stronger test of ability to reason about financial correctness rather than just UI behavior.</p>
+        <ul class="project-highlights">
+          <li>Authored a test plan and 30 test cases across 10 modules: Registration, Login, Accounts Overview, Open New Account, Transfer Funds, Bill Pay, Find Transactions, Update Profile, Request Loan, and Customer Care</li>
+          <li>Found and documented 7 bugs, most critically a systemic lack of amount validation in Transfer Funds — the system accepted transfers exceeding available balance, zero amounts, negative amounts, and same-account transfers, all without rejection</li>
+          <li>Traced the same missing-balance-validation pattern into a second feature (Bill Pay), confirming it as an application-wide gap rather than an isolated defect</li>
+          <li>Identified an inconsistent date-validation bug in Find Transactions — a clearly invalid date string was rejected, but a wrong-format date (DD-MM-YYYY instead of MM-DD-YYYY) silently returned empty results instead of an error</li>
+          <li>Distinguished between "invalid data silently accepted" and "unhandled system crash" as two distinct defect categories when non-numeric input triggered a generic internal error instead of a validation message</li>
+        </ul>
+        <div class="project-tags">
+          <span class="tag">Manual Testing</span><span class="tag">Exploratory Testing</span><span class="tag">Test Case Design</span>
+          <span class="tag">Bug Reporting</span><span class="tag">Test Planning</span><span class="tag">Financial/Business Logic Testing</span>
+        </div>
+        <div class="doc-btns">
+          <button class="doc-btn" onclick="openModal('QA — Test Plan', 'docs/qa-pb-testplan.pdf')">📄 Test Plan</button>
+          <a href="docs/qa-pb-testcases.xlsx" class="doc-link"><button class="doc-btn">📊 Test Case Sheet</button></a>
+          <button class="doc-btn" onclick="openModal('QA — Bug Report', 'docs/qa-pb-bugreport.pdf')">🐞 Bug Report</button>
+        </div>
+      </div>
+
     </div>
   </section>
 </div>
@@ -609,7 +635,7 @@
 </div>
 
 <footer>
-  <span>sofiyanatul munawaroh · purbalingga, indonesia · 2026</span>
+  <span>sofiyanatul munawaroh · surakarta, indonesia · 2026</span>
 </footer>
 
 <!-- MODAL -->
